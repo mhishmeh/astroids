@@ -29,8 +29,10 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
         for sprite in updateable:
             sprite.update(dt)
+        screen.fill(color="black")
         for sprite in drawable:
             sprite.draw(screen)
         pygame.display.flip()
