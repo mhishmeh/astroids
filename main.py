@@ -36,9 +36,15 @@ def main():
         
         for sprite in updateable:
             sprite.update(dt)
-            for obj in asteroids:
-                if obj.Check_Collision(Player_one):
+            for asteroid in asteroids:
+                if asteroid.Check_Collision(Player_one):
                     sys.exit("GAME OVER!")
+                for shot in shots:
+                    if shot.Check_Collision(asteroid):
+                        shot.kill()
+                        asteroid.kill()
+
+                
         screen.fill(color="black")
 
         for sprite in drawable:
